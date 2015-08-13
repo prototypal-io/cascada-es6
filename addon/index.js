@@ -1,4 +1,5 @@
 import css from './parse-css';
+import parserHelpers from './parser-helpers';
 
 class Parser {
   constructor() {
@@ -66,7 +67,7 @@ class Parser {
   }
 
   acceptComponentValues(parts) {
-    return this.trimWhitespaceTokens(parts).map(this.acceptComponentValue.bind(this));
+    return parserHelpers.trimWhitespaceTokens(parts).map(this.acceptComponentValue.bind(this));
   }
 
   acceptComponentValue(node) {
@@ -167,21 +168,8 @@ class Parser {
   }
 
   acceptCommaSeparatedComponentValues(parts) {
-    let whitespacelessParts = this.removeWhitespaceTokens(parts);
-    let cleanParts = this.removeCommaTokens(whitespacelessParts);
+    let cleanParts = parserHelpers.removeCommaAndRespectiveWhitespaceTokens(parts);
     return cleanParts.map(this.acceptComponentValue.bind(this));
-  }
-
-  removeWhitespaceTokens(tokens) {
-    return tokens.filter(function (token) {
-      return token.tokenType !== 'WHITESPACE';
-    });
-  }
-
-  removeCommaTokens(tokens) {
-    return tokens.filter(function (token) {
-      return token.tokenType !== ',';
-    });
   }
 
   acceptComponentValueParts(name, parts) {
@@ -225,16 +213,6 @@ class Parser {
       prelude: node.prelude,
       value: node.value
     };
-  }
-
-  trimWhitespaceTokens(tokens) {
-    var startIndex = 0;
-    var endIndex = tokens.length;
-
-    while (tokens[startIndex].tokenType === 'WHITESPACE') { startIndex++; }
-    while (tokens[endIndex-1].tokenType === 'WHITESPACE') { endIndex--; }
-
-    return tokens.slice(startIndex, endIndex);
   }
 }
 
