@@ -1,10 +1,8 @@
-import css from '../parse-css';
-
 function tok(source) {
   return {
     type: 'Token',
     source: source
-  }
+  };
 }
 
 function number(value) {
@@ -12,7 +10,7 @@ function number(value) {
     type: 'Number',
     value: value,
     source: value,
-  }
+  };
 }
 
 function ident(name) {
@@ -46,4 +44,4 @@ export {
   number,
   ident,
   func
-}
+};

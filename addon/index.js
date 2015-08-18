@@ -7,4 +7,4 @@ export function parse(source, options) {
   return parser.acceptStylesheet(
     css.parseAStylesheet(source)
   );
-};
+}

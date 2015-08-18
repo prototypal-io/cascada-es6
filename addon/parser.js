@@ -2,10 +2,10 @@ import css from './parse-css';
 import parserHelpers from './parser-helpers';
 
 export default class Parser {
-  constructor(options) {
+  constructor(options = {}) {
     this.customFunctions = {};
 
-    for (name in options.customFunctions) {
+    for (let name in options.customFunctions) {
       this.registerFunction(name, options.customFunctions[name]);
     }
   }
@@ -38,7 +38,7 @@ export default class Parser {
       type: 'StyleRule',
       selectors: [ this.acceptSelector(node.prelude) ],
       body: this.acceptDeclarations(node.value.value, this.acceptStyleDeclaration.bind(this))
-    }
+    };
   }
 
   acceptSelector(tokens) {
@@ -187,7 +187,7 @@ export default class Parser {
 
     switch (node.type) {
       case 'FUNCTION': return this.acceptFunction(node);
-      default: throw new Error("Unknown style part: " + node.tokenType + " " + node.type + " " + node)
+      default: throw new Error("Unknown style part: " + node.tokenType + " " + node.type + " " + node);
     }
   }
 
