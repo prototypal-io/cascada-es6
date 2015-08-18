@@ -1,6 +1,7 @@
 /*
  Copied from https://github.com/tabatkins/parse-css with minor modifications.
 */
+/* jshint ignore:start */
 
 var between = function (num, first, last) { return num >= first && num <= last; }
 function digit(code) { return between(code, 0x30,0x39); }
@@ -1300,3 +1301,5 @@ export {
   parseAListOfComponentValues,
   parseACommaSeparatedListOfComponentValues
 }
+
+/* jshint ignore:end */
