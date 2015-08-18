@@ -173,11 +173,11 @@ export default class Parser {
 
   acceptCommaSeparatedComponentValues(parts) {
     let cleanParts = parserHelpers.removeCommaAndRespectiveWhitespaceTokens(parts);
-    return cleanParts.map(this.acceptComponentValue.bind(this));
+    return cleanParts.map(this.acceptComponentValuePart.bind(this));
   }
 
   acceptComponentValueParts(name, parts) {
-    return parts.map(this.acceptComponentValuePart);
+    return parts.map(this.acceptComponentValuePart.bind(this));
   }
 
   acceptComponentValuePart(node) {
