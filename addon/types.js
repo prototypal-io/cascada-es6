@@ -9,7 +9,7 @@ function number(value) {
   return {
     type: 'Number',
     value: value,
-    source: value,
+    source: value.toString(),
   };
 }
 
