@@ -1,7 +1,5 @@
-import cascada from 'cascada';
+import t, { parse } from 'cascada';
 import { module, test } from 'qunit';
-let parse = cascada.parse;
-let t = cascada.types;
 
 module('Unit | Cascada');
 
