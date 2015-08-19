@@ -1,7 +1,7 @@
 import css from './parse-css';
-import parserHelpers from './parser-helpers';
+import * as parserHelpers from './parser-helpers';
 
-export default class Parser {
+export class Parser {
   constructor(options = {}) {
     this.customFunctions = {};
 
@@ -173,22 +173,7 @@ export default class Parser {
 
   acceptCommaSeparatedComponentValues(parts) {
     let cleanParts = parserHelpers.removeCommaAndRespectiveWhitespaceTokens(parts);
-    return cleanParts.map(this.acceptComponentValuePart.bind(this));
-  }
-
-  acceptComponentValueParts(name, parts) {
-    return parts.map(this.acceptComponentValuePart.bind(this));
-  }
-
-  acceptComponentValuePart(node) {
-    if (node.tokenType) {
-      return node;
-    }
-
-    switch (node.type) {
-      case 'FUNCTION': return this.acceptFunction(node);
-      default: throw new Error("Unknown style part: " + node.tokenType + " " + node.type + " " + node);
-    }
+    return cleanParts.map(this.acceptComponentValue.bind(this));
   }
 
   printValue(parts) {

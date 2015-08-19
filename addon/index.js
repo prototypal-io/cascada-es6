@@ -1,4 +1,4 @@
-import Parser from './parser';
+import { Parser } from './parser';
 import css from './parse-css';
 import types from './types';
 
@@ -10,6 +10,4 @@ export function parse(source, options) {
   );
 }
 
-export {
-  types
-};
+export default types;

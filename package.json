@@ -6,8 +6,10 @@
     "doc": "doc",
     "test": "tests"
   },
+  "main": "addon_cjs/index.js",
   "scripts": {
     "build": "ember build",
+    "prepublish": "babel addon/ -d addon_cjs/",
     "start": "ember server",
     "test": "ember try:testall"
   },
@@ -18,6 +20,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "babel": "^5.8.21",
     "broccoli-asset-rev": "^2.1.2",
     "ember-cli": "1.13.8",
     "ember-cli-app-version": "0.5.0",
@@ -32,9 +35,9 @@
     "ember-cli-sri": "^1.0.3",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "1.13.8",
+    "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
-    "ember-disable-prototype-extensions": "^1.0.0",
     "ember-try": "0.0.6"
   },
   "keywords": [
@@ -44,6 +47,7 @@
     "ember-cli-babel": "^5.1.3"
   },
   "ember-addon": {
+    "main": "index.js",
     "configPath": "tests/dummy/config"
   }
 }

@@ -879,45 +879,6 @@ function escapeString(string) {
   return result;
 }
 
-// Exportation.
-export {
-  tokenize,
-  TokenStream,
-  IdentToken,
-  FunctionToken,
-  AtKeywordToken,
-  HashToken,
-  StringToken,
-  BadStringToken,
-  URLToken,
-  BadURLToken,
-  DelimToken,
-  NumberToken,
-  PercentageToken,
-  DimensionToken,
-  IncludeMatchToken,
-  DashMatchToken,
-  PrefixMatchToken,
-  SuffixMatchToken,
-  SubstringMatchToken,
-  ColumnToken,
-  WhitespaceToken,
-  CDOToken,
-  CDCToken,
-  ColonToken,
-  SemicolonToken,
-  CommaToken,
-  OpenParenToken,
-  CloseParenToken,
-  OpenSquareToken,
-  CloseSquareToken,
-  OpenCurlyToken,
-  CloseCurlyToken,
-  EOFToken,
-  CSSParserToken,
-  GroupingToken
-}
-
 function TokenStream(tokens) {
   // Assume that tokens is an array.
   this.tokens = tokens;
@@ -1282,7 +1243,42 @@ Func.prototype.toJSON = function() {
 }
 
 // Exportation.
-export {
+export default {
+  tokenize,
+  TokenStream,
+  IdentToken,
+  FunctionToken,
+  AtKeywordToken,
+  HashToken,
+  StringToken,
+  BadStringToken,
+  URLToken,
+  BadURLToken,
+  DelimToken,
+  NumberToken,
+  PercentageToken,
+  DimensionToken,
+  IncludeMatchToken,
+  DashMatchToken,
+  PrefixMatchToken,
+  SuffixMatchToken,
+  SubstringMatchToken,
+  ColumnToken,
+  WhitespaceToken,
+  CDOToken,
+  CDCToken,
+  ColonToken,
+  SemicolonToken,
+  CommaToken,
+  OpenParenToken,
+  CloseParenToken,
+  OpenSquareToken,
+  CloseSquareToken,
+  OpenCurlyToken,
+  CloseCurlyToken,
+  EOFToken,
+  CSSParserToken,
+  GroupingToken,
   CSSParserRule,
   Stylesheet,
   AtRule,

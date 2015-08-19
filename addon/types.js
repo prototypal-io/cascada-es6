@@ -37,7 +37,7 @@ function comma() {
   return tok(',');
 }
 
-export {
+export default {
   tok,
   ws,
   comma,
